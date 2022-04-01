@@ -27,11 +27,17 @@
             "type": "dart",
             "args": ["-d", "chrome", "--web-renderer", "html"],
         },
+        {
+            "name": "Window App",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "windows"],
+        },
     ],
     "compounds": [
         {
             "name": "All Devices",
-            "configurations": ["Current Device", "Android - Pixel 4 API 30", "Web"],
+            "configurations": ["Current Device", "Android - Pixel 4 API 30", "Web", "Window App"],
         }
     ]
 }
