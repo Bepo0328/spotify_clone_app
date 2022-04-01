@@ -102,7 +102,11 @@ class __LibraryPlaylistsState extends State<_LibraryPlaylists> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Scrollbar(
+      child: RawScrollbar(
+        thumbColor: Colors.grey[800],
+        radius: const Radius.circular(20),
+        thickness: 8,
+        crossAxisMargin: 3,
         isAlwaysShown: true,
         controller: _scrollController,
         child: ListView(
