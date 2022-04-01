@@ -10,7 +10,7 @@ import 'package:spotify_clone_app/widgets/widgets.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!kIsWeb && (Platform.isIOS || Platform.isLinux || Platform.isWindows)) {
-    await DesktopWindow.setMinWindowSize(const Size(600, 800));
+    await DesktopWindow.setMinWindowSize(const Size(800, 800));
   }
   runApp(const MyApp());
 }
