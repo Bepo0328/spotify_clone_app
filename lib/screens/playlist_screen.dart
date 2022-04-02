@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone_app/data/data.dart';
 import 'package:spotify_clone_app/screens/screens.dart';
+import 'package:spotify_clone_app/widgets/widgets.dart';
 
 class PlaylistScreen extends StatefulWidget {
   const PlaylistScreen({
@@ -115,7 +116,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             stops: const [0, 0.3],
           ),
         ),
-        child: Scrollbar(
+        child: RawScrollbar(
+          thumbColor: Colors.grey[700],
+          radius: const Radius.circular(20),
+          thickness: 8,
+          crossAxisMargin: 3,
           isAlwaysShown: true,
           controller: _scrollController,
           child: ListView(
@@ -126,6 +131,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             ),
             children: [
               PlaylistHeader(playlist: widget.playlist),
+              TracksList(tracks: widget.playlist.songs),
             ],
           ),
         ),

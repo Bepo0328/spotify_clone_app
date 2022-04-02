@@ -103,7 +103,7 @@ class __LibraryPlaylistsState extends State<_LibraryPlaylists> {
   Widget build(BuildContext context) {
     return Expanded(
       child: RawScrollbar(
-        thumbColor: Colors.grey[800],
+        thumbColor: Colors.grey[700],
         radius: const Radius.circular(20),
         thickness: 8,
         crossAxisMargin: 3,
