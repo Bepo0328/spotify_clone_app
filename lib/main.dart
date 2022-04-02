@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spotify_clone_app/data/data.dart';
+import 'package:spotify_clone_app/models/current_track_model.dart';
 import 'package:spotify_clone_app/screens/screens.dart';
 import 'package:spotify_clone_app/widgets/widgets.dart';
 
@@ -12,7 +14,12 @@ void main() async {
   if (!kIsWeb && (Platform.isIOS || Platform.isLinux || Platform.isWindows)) {
     await DesktopWindow.setMinWindowSize(const Size(800, 800));
   }
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CurrentTrackModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
