@@ -12,7 +12,7 @@ import 'package:spotify_clone_app/widgets/widgets.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!kIsWeb && (Platform.isIOS || Platform.isLinux || Platform.isWindows)) {
-    await DesktopWindow.setMinWindowSize(const Size(800, 800));
+    await DesktopWindow.setMinWindowSize(const Size(600, 800));
   }
   runApp(
     ChangeNotifierProvider(
@@ -80,9 +80,9 @@ class Shell extends StatelessWidget {
         children: [
           Expanded(
             child: Row(
-              children: const [
-                SideMenu(),
-                Expanded(
+              children: [
+                if (MediaQuery.of(context).size.width > 800) const SideMenu(),
+                const Expanded(
                   child: PlaylistScreen(
                     playlist: lofihiphopPlaylist,
                   ),
@@ -90,11 +90,7 @@ class Shell extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 84,
-            width: double.infinity,
-            color: Colors.blue,
-          ),
+          const CurrentTrack(),
         ],
       ),
     );
